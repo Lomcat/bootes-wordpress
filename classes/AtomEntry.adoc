@@ -1,0 +1,28 @@
+link:../index.adoc[WordPress 代码参考] / link:../Classes.adoc[类] / AtomEntry
+
+== AtomEntry
+
+=== 描述
+
+用于存储 https://zh.wikipedia.org/wiki/Atom_(%E6%A8%99%E6%BA%96)[Atom] 条目的结构体。
+
+=== 源码
+
+文件：wp-includes/atomlib.php
+
+```php
+class AtomEntry {
+    /**
+     * Stores Links
+     * @var array
+     * @access public
+     */
+    var $links = array();
+    /**
+     * Stores Categories
+     * @var array
+     * @access public
+     */
+    var $categories = array();
+}
+```
