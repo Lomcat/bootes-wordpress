@@ -1,0 +1,380 @@
+[WordPress 代码参考](../index.md) / [类](../Classes.md) / WP_Post
+
+## WP_Post
+
+### 描述
+
+WP_Post 对象（帖子对象）的核心实现类。
+
+### 成员变量
+
+变量名 | 变量类型 | 默认值 | 描述
+--- | --- | --- | ---
+$ID                     | int    |                       | 帖子 ID
+$post_author            | string | 0                     | 帖子作者的ID，出于兼容性考虑而使用数字字符串
+$post_date              | string | '0000-00-00 00:00:00' | 帖子发布的本地时间
+$post_date_gmt          | string | '0000-00-00 00:00:00' | 帖子发布的 GMT 时间
+$post_content           | string | ''                    | 帖子内容
+$post_title             | string | ''                    | 帖子标题
+$post_excerpt           | string | ''                    | 帖子摘录
+$post_status            | string | 'publish'             | 帖子状态
+$comment_status         | string | 'open'                | 是否允许评论
+$ping_status            | string | 'open'                | 是否允许 ping
+$post_password          | string | ''                    | 帖子密码明文
+$post_name              | string | ''                    | 帖子名称（slug），可用于帖子的友好 URL
+$to_ping                | string | ''                    | 排队等待被 ping 的 URL
+$pinged                 | string | ''                    | 已被 ping 的 URL
+$post_modified          | string | '0000-00-00 00:00:00' | 帖子修改的本地时间
+$post_modified_gmt      | string | '0000-00-00 00:00:00' | 帖子修改的 GMT 时间
+$post_content_filtered  | string | ''                    | 一个用于帖子内容的多功能字段，一些插件会用该字段存储一些扩展内容，如 markdown 的原文
+$post_parent            | string | 0                     | 上级ID
+$guid                   | string | ''                    | 帖子的唯一标识符，不一定是 URL，用作 Feed 的 GUID
+$menu_order             | int    | 0                     | 用于帖子排序
+$post_type              | string | 'post'                | 帖子类型
+$post_mime_type         | string | ''                    | 帖子附件类型
+$comment_count          | string | 0                     | 缓存的评论数量，出于兼容性考虑而使用数字字符串
+$filter                 | string |                       | 存储帖子对象的消毒级别（即清洁用户的非法输入以确保数据安全），数据表中无此字段
+
+### 方法
+
+* **__construct** —— 构造方法
+
+    * 使用：
+
+        `WP_Post::__construct( WP_Post|object $post )`
+
+    * 参数：
+
+        $post：*`WP_Post | object` （必须）* 帖子对象
+
+
+方法名 | 参数 | 返回值 | 描述
+--- | --- | --- | ---
+__construct | $
+
+### 源码
+
+文件：wp-includes/class-wp-post.php
+
+```php
+final class WP_Post {
+
+    /**
+     * Post ID.
+     *
+     * @var int
+     */
+    public $ID;
+
+    /**
+     * ID of post author.
+     *
+     * A numeric string, for compatibility reasons.
+     *
+     * @var string
+     */
+    public $post_author = 0;
+
+    /**
+     * The post's local publication time.
+     *
+     * @var string
+     */
+    public $post_date = '0000-00-00 00:00:00';
+
+    /**
+     * The post's GMT publication time.
+     *
+     * @var string
+     */
+    public $post_date_gmt = '0000-00-00 00:00:00';
+
+    /**
+     * The post's content.
+     *
+     * @var string
+     */
+    public $post_content = '';
+
+    /**
+     * The post's title.
+     *
+     * @var string
+     */
+    public $post_title = '';
+
+    /**
+     * The post's excerpt.
+     *
+     * @var string
+     */
+    public $post_excerpt = '';
+
+    /**
+     * The post's status.
+     *
+     * @var string
+     */
+    public $post_status = 'publish';
+
+    /**
+     * Whether comments are allowed.
+     *
+     * @var string
+     */
+    public $comment_status = 'open';
+
+    /**
+     * Whether pings are allowed.
+     *
+     * @var string
+     */
+    public $ping_status = 'open';
+
+    /**
+     * The post's password in plain text.
+     *
+     * @var string
+     */
+    public $post_password = '';
+
+    /**
+     * The post's slug.
+     *
+     * @var string
+     */
+    public $post_name = '';
+
+    /**
+     * URLs queued to be pinged.
+     *
+     * @var string
+     */
+    public $to_ping = '';
+
+    /**
+     * URLs that have been pinged.
+     *
+     * @var string
+     */
+    public $pinged = '';
+
+    /**
+     * The post's local modified time.
+     *
+     * @var string
+     */
+    public $post_modified = '0000-00-00 00:00:00';
+
+    /**
+     * The post's GMT modified time.
+     *
+     * @var string
+     */
+    public $post_modified_gmt = '0000-00-00 00:00:00';
+
+    /**
+     * A utility DB field for post content.
+     *
+     *
+     * @var string
+     */
+    public $post_content_filtered = '';
+
+    /**
+     * ID of a post's parent post.
+     *
+     * @var int
+     */
+    public $post_parent = 0;
+
+    /**
+     * The unique identifier for a post, not necessarily a URL, used as the feed GUID.
+     *
+     * @var string
+     */
+    public $guid = '';
+
+    /**
+     * A field used for ordering posts.
+     *
+     * @var int
+     */
+    public $menu_order = 0;
+
+    /**
+     * The post's type, like post or page.
+     *
+     * @var string
+     */
+    public $post_type = 'post';
+
+    /**
+     * An attachment's mime type.
+     *
+     * @var string
+     */
+    public $post_mime_type = '';
+
+    /**
+     * Cached comment count.
+     *
+     * A numeric string, for compatibility reasons.
+     *
+     * @var string
+     */
+    public $comment_count = 0;
+
+    /**
+     * Stores the post object's sanitization level.
+     *
+     * Does not correspond to a DB field.
+     *
+     * @var string
+     */
+    public $filter;
+
+    /**
+     * Retrieve WP_Post instance.
+     *
+     * @static
+     * @access public
+     *
+     * @global wpdb $wpdb WordPress database abstraction object.
+     *
+     * @param int $post_id Post ID.
+     * @return WP_Post|false Post object, false otherwise.
+     */
+    public static function get_instance( $post_id ) {
+        global $wpdb;
+
+        $post_id = (int) $post_id;
+        if ( ! $post_id ) {
+            return false;
+        }
+
+        $_post = wp_cache_get( $post_id, 'posts' );
+
+        if ( ! $_post ) {
+            $_post = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->posts WHERE ID = %d LIMIT 1", $post_id ) );
+
+            if ( ! $_post )
+                return false;
+
+            $_post = sanitize_post( $_post, 'raw' );
+            wp_cache_add( $_post->ID, $_post, 'posts' );
+        } elseif ( empty( $_post->filter ) ) {
+            $_post = sanitize_post( $_post, 'raw' );
+        }
+
+        return new WP_Post( $_post );
+    }
+
+    /**
+     * Constructor.
+     *
+     * @param WP_Post|object $post Post object.
+     */
+    public function __construct( $post ) {
+        foreach ( get_object_vars( $post ) as $key => $value )
+            $this->$key = $value;
+    }
+
+    /**
+     * Isset-er.
+     *
+     * @param string $key Property to check if set.
+     * @return bool
+     */
+    public function __isset( $key ) {
+        if ( 'ancestors' == $key )
+            return true;
+
+        if ( 'page_template' == $key )
+            return true;
+
+        if ( 'post_category' == $key )
+           return true;
+
+        if ( 'tags_input' == $key )
+           return true;
+
+        return metadata_exists( 'post', $this->ID, $key );
+    }
+
+    /**
+     * Getter.
+     *
+     * @param string $key Key to get.
+     * @return mixed
+     */
+    public function __get( $key ) {
+        if ( 'page_template' == $key && $this->__isset( $key ) ) {
+            return get_post_meta( $this->ID, '_wp_page_template', true );
+        }
+
+        if ( 'post_category' == $key ) {
+            if ( is_object_in_taxonomy( $this->post_type, 'category' ) )
+                $terms = get_the_terms( $this, 'category' );
+
+            if ( empty( $terms ) )
+                return array();
+
+            return wp_list_pluck( $terms, 'term_id' );
+        }
+
+        if ( 'tags_input' == $key ) {
+            if ( is_object_in_taxonomy( $this->post_type, 'post_tag' ) )
+                $terms = get_the_terms( $this, 'post_tag' );
+
+            if ( empty( $terms ) )
+                return array();
+
+            return wp_list_pluck( $terms, 'name' );
+        }
+
+        // Rest of the values need filtering.
+        if ( 'ancestors' == $key )
+            $value = get_post_ancestors( $this );
+        else
+            $value = get_post_meta( $this->ID, $key, true );
+
+        if ( $this->filter )
+            $value = sanitize_post_field( $key, $value, $this->ID, $this->filter );
+
+        return $value;
+    }
+
+    /**
+     * {@Missing Summary}
+     *
+     * @param string $filter Filter.
+     * @return self|array|bool|object|WP_Post
+     */
+    public function filter( $filter ) {
+        if ( $this->filter == $filter )
+            return $this;
+
+        if ( $filter == 'raw' )
+            return self::get_instance( $this->ID );
+
+        return sanitize_post( $this, $filter );
+    }
+
+    /**
+     * Convert object to array.
+     *
+     * @return array Object as array.
+     */
+    public function to_array() {
+        $post = get_object_vars( $this );
+
+        foreach ( array( 'ancestors', 'page_template', 'post_category', 'tags_input' ) as $key ) {
+            if ( $this->__isset( $key ) )
+                $post[ $key ] = $this->__get( $key );
+        }
+
+        return $post;
+    }
+}
+```
