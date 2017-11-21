@@ -1,16 +1,17 @@
 [WordPress 代码参考](../index.md) / [类](../Classes.md) / AtomFeed
 
-## AtomFeed
+== AtomFeed
 
-### 描述
+=== 描述
 
 存储常见 Atom Feed 属性的结构体。
 
-### 源码
+=== 源码
 
 文件：wp-includes/atomlib.php
 
-```php
+[source, php]
+---
 class AtomFeed {
     /**
      * Stores Links
@@ -32,4 +33,4 @@ class AtomFeed {
      */
     var $entries = array();
 }
-```
+---

@@ -8,9 +8,9 @@ link:../README.adoc[WordPress 代码参考] / link:../Classes.adoc[类] / AtomEn
 
 === 源码
 
-文件：wp-includes/atomlib.php
-
-```php
+[source, php]
+.wp-includes/atomlib.php
+---
 class AtomEntry {
     /**
      * Stores Links
@@ -25,4 +25,4 @@ class AtomEntry {
      */
     var $categories = array();
 }
-```
+---
