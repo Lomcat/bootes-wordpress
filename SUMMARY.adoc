@@ -5,3 +5,4 @@
 .. link:classes/AtomFeed.adoc[AtomFeed]
 .. link:classes/AtomParser.html[AtomParser]
 . link:posts_index.adoc[posts_index]
+include::summary_1.adoc[]
