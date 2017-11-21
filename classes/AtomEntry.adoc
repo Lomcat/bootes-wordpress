@@ -1,4 +1,4 @@
-link:../index.adoc[WordPress 代码参考] / link:../Classes.adoc[类] / AtomEntry
+link:../README.adoc[WordPress 代码参考] / link:../Classes.adoc[类] / AtomEntry
 
 == AtomEntry
 
