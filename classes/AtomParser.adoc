@@ -32,6 +32,7 @@ Atom 解析器 API。
 `is_declared_content_ns`
 
 `map_attrs` — 将给定的键值映射为 key="val" 形式的字符串
+
 ****
 [source, php]
 AtomParser::map_attrs( string $k, string $v )
