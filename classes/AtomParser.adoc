@@ -8,27 +8,66 @@ Atom 解析器 API。
 
 === 方法
 
----
+==== `*__construct*` — PHP5 构造方法
+****
+[source, php]
+AtomParser::__construct()
 
-.`__construct` — PHP5 构造方法
+[source, php]
+.代码：wp-includes/atomlib.php
+----
+function __construct() {
+    $this->feed = new AtomFeed();
+    $this->current = null;
+    $this->map_attrs_func = array( __CLASS__, 'map_attrs' );
+    $this->map_xmlns_func = array( __CLASS__, 'map_xmlns' );
+}
+----
+****
 
----
+==== `*_default*`
+****
+[source, php]
+AtomParser::_default( $parser,  $data )
 
-`__construct` — PHP5 构造方法
+[source, php]
+.代码：wp-includes/atomlib.php
+----
+function _default($parser, $data) {
+    # when does this gets called?
+}
+----
+****
 
----
+==== `_p`
+****
+[source, php]
+AtomParser::_p( $msg )
 
-`_default`
+[source, php]
+.代码：wp-includes/atomlib.php
+----
+function _p($msg) {
+    if($this->debug) {
+        print str_repeat(" ", $this->depth * $this->indent) . $msg ."\n";
+    }
+}
+----
+****
 
----
+==== `AtomParser` — PHP4 构造方法
+****
+[source, php]
+AtomParser::AtomParser()
 
-`_p`
-
----
-
-`AtomParser` — PHP4 构造方法
-
----
+[source, php]
+.代码：wp-includes/atomlib.php
+----
+public function AtomParser() {
+    self::__construct();
+}
+----
+****
 
 `cdata`
 
@@ -48,9 +87,7 @@ Atom 解析器 API。
 
 `is_declared_content_ns`
 
----
-
-`map_attrs` — 将给定的键值映射为 key="val" 形式的字符串
+==== `*map_attrs*` — 将给定的键值映射为 key="val" 形式的字符串
 ****
 [source, php]
 AtomParser::map_attrs( string $k, string $v )
@@ -70,8 +107,6 @@ public static function map_attrs($k, $v) {
 }
 ----
 ****
-
----
 
 `map_xmlns` — 将 XML 命名空间映射为字符串
 
