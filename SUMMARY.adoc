@@ -10,3 +10,5 @@
 . link:posts_index.adoc[posts_index]
 
 include::summary_1.adoc[]
+
+=== link:classes/Error.adoc[Error]
