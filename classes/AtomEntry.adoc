@@ -10,7 +10,7 @@ link:../README.adoc[WordPress 代码参考] / link:../Classes.adoc[类] / AtomEn
 
 [source, php]
 .wp-includes/atomlib.php
----
+----
 class AtomEntry {
     /**
      * Stores Links
@@ -25,4 +25,11 @@ class AtomEntry {
      */
     var $categories = array();
 }
----
+----
+
+[source, java]
+----
+public static void main(String[] args) {
+    System.out.println("aaa");
+}
+----
