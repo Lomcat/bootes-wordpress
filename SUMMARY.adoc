@@ -1,14 +1,33 @@
 = Summary
 
-
-. link:classes/AtomEntry.adoc[AtomEntry]
-
-. link:classes/AtomFeed.adoc[AtomFeed]
-
-. link:classes/AtomParser.html[AtomParser]
-
-. link:posts_index.adoc[posts_index]
-
-include::summary_1.adoc[]
-
-=== link:classes/Error.adoc[Error]
+. link:Classes.adoc[类]
+.. link:classes/AtomEntry.adoc[AtomEntry]
+.. link:classes/AtomFeed.adoc[AtomFeed]
+.. link:classes/AtomParser.adoc[AtomParser]
+.. link:classes/Automatic_Upgrader_Skin.adoc[Automatic_Upgrader_Skin]
+.. link:classes/Bulk_Plugin_Upgrader_Skin.adoc[Bulk_Plugin_Upgrader_Skin]
+.. link:classes/Bulk_Theme_Upgrader_Skin.adoc[Bulk_Theme_Upgrader_Skin]
+.. link:classes/Bulk_Upgrader_Skin.adoc[Bulk_Upgrader_Skin]
+.. link:classes/Core_Upgrader.adoc[Core_Upgrader]
+.. link:classes/Custom_Background.adoc[Custom_Background]
+.. link:classes/Custom_Image_Header.adoc[Custom_Image_Header]
+.. link:classes/Error.adoc[Error]
+.. link:classes/Featured_Content.adoc[Featured_Content]
+.. link:classes/File_Upload_Upgrader.adoc[File_Upload_Upgrader]
+.. link:classes/Gettext_Translations.adoc[Gettext_Translations]
+.. link:classes/IXR_Base64.adoc[IXR_Base64]
+.. link:classes/IXR_Client.adoc[IXR_Client]
+.. link:classes/IXR_ClientMulticall.adoc[IXR_ClientMulticall]
+.. link:classes/IXR_Date.adoc[IXR_Date]
+.. link:classes/IXR_Error.adoc[IXR_Error]
+.. link:classes/IXR_IntrospectionServer.adoc[IXR_IntrospectionServer]
+.. link:classes/IXR_Message.adoc[IXR_Message]
+.. link:classes/IXR_Request.adoc[IXR_Request]
+.. link:classes/IXR_Server.adoc[IXR_Server]
+.. link:classes/IXR_Value.adoc[IXR_Value]
+.. link:classes/Language_Pack_Upgrader.adoc[Language_Pack_Upgrader]
+.. link:classes/Language_Pack_Upgrader_Skin.adoc[Language_Pack_Upgrader_Skin]
+.. link:classes/MagpieRSS.adoc[MagpieRSS]
+.. link:classes/MO.adoc[MO]
+.. link:classes/NOOP_Translations.adoc[NOOP_Translations]
+.. link:classes/Plugin_Installer_Skin.adoc[Plugin_Installer_Skin]

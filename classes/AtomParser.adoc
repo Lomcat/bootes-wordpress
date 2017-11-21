@@ -1,16 +1,21 @@
-[WordPress 代码参考](../index.md) / [类](../Classes.md) / AtomParser
+link:../README.adoc[WordPress 代码参考] / link:../Classes.adoc[类] / AtomParser
 
-## AtomParser
+== AtomParser
 
-### 描述
+=== 描述
 
 Atom 解析器 API。
 
-### 方法
+=== 方法
 
-[__construct]() — PHP5 构造方法
+.`__construct` — PHP5 构造方法
+----
 
-[_default]()
+----
+
+`__construct` — PHP5 构造方法
+
+`_default`
 
 `_p`
 
@@ -27,22 +32,25 @@ Atom 解析器 API。
 `is_declared_content_ns`
 
 `map_attrs` — 将给定的键值映射为 key="val" 形式的字符串
+****
+[source, php]
+AtomParser::map_attrs( string $k, string $v )
 
-region {
-参数：
-- **$k**：*`string` （必须）* 键
-- **$v**：*`string` （必须）* 值
+.参数：
+* *$k*：`string` （必须） 键
+* *$v*：`string` （必须） 值
 
-返回值：
-- key="val" 形式的字符串
+.返回值：
+* key="val" 形式的字符串
 
-代码：wp-includes/atomlib.php
-```php
+[source, php]
+.代码：wp-includes/atomlib.php
+----
 public static function map_attrs($k, $v) {
     return "$k=\"$v\"";
 }
-```
-} region
+----
+****
 
 `map_xmlns` — 将 XML 命名空间映射为字符串
 
@@ -56,11 +64,11 @@ public static function map_attrs($k, $v) {
 
 `xml_escape`
 
-### 源码
+=== 源码
 
-文件：wp-includes/atomlib.php
-
-```php
+[source, php]
+.文件：wp-includes/atomlib.php
+----
 class AtomParser {
 
     var $NS = 'http://www.w3.org/2005/Atom';
@@ -391,4 +399,4 @@ class AtomParser {
                 $string );
     }
 }
-```
+----

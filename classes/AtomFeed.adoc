@@ -1,4 +1,4 @@
-[WordPress 代码参考](../index.md) / [类](../Classes.md) / AtomFeed
+link:../README.adoc[WordPress 代码参考] / link:../Classes.adoc[类] / AtomFeed
 
 == AtomFeed
 
@@ -11,7 +11,7 @@
 文件：wp-includes/atomlib.php
 
 [source, php]
----
+----
 class AtomFeed {
     /**
      * Stores Links
@@ -33,4 +33,4 @@ class AtomFeed {
      */
     var $entries = array();
 }
----
+----

@@ -1,1 +1,1 @@
-[WordPress 代码参考](../index.md) / 类
+link:README.adoc[WordPress 代码参考] / 类
