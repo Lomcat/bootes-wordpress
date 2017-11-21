@@ -27,7 +27,33 @@ class AtomEntry {
 }
 ----
 
+[source,php]
+.wp-includes/atomlib.php
+----
+class AtomEntry {
+    /**
+     * Stores Links
+     * @var array
+     * @access public
+     */
+    var $links = array();
+    /**
+     * Stores Categories
+     * @var array
+     * @access public
+     */
+    var $categories = array();
+}
+----
+
 [source, java]
+----
+public static void main(String[] args) {
+    System.out.println("aaa");
+}
+----
+
+[source,java]
 ----
 public static void main(String[] args) {
     System.out.println("aaa");
