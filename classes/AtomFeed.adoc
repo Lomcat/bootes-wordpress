@@ -8,8 +8,7 @@ link:../README.adoc[WordPress 代码参考] / link:../Classes.adoc[类] / AtomFe
 
 === 源码
 
-文件：wp-includes/atomlib.php
-
+.文件：wp-includes/atomlib.php
 [source, php]
 ----
 class AtomFeed {

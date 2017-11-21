@@ -8,134 +8,121 @@ Atom 解析器 API。
 
 === 方法
 
-==== `*__construct*` — PHP5 构造方法
+==== `__construct` — PHP5 构造方法
 ****
 [source, php]
 AtomParser::__construct()
-
-[source, php]
-.代码：wp-includes/atomlib.php
-----
-function __construct() {
-    $this->feed = new AtomFeed();
-    $this->current = null;
-    $this->map_attrs_func = array( __CLASS__, 'map_attrs' );
-    $this->map_xmlns_func = array( __CLASS__, 'map_xmlns' );
-}
-----
 ****
 
-==== `*_default*`
+==== `_default`
 ****
 [source, php]
 AtomParser::_default( $parser,  $data )
-
-[source, php]
-.代码：wp-includes/atomlib.php
-----
-function _default($parser, $data) {
-    # when does this gets called?
-}
-----
 ****
 
 ==== `_p`
 ****
 [source, php]
 AtomParser::_p( $msg )
-
-[source, php]
-.代码：wp-includes/atomlib.php
-----
-function _p($msg) {
-    if($this->debug) {
-        print str_repeat(" ", $this->depth * $this->indent) . $msg ."\n";
-    }
-}
-----
 ****
 
 ==== `AtomParser` — PHP4 构造方法
 ****
 [source, php]
 AtomParser::AtomParser()
-
-[source, php]
-.代码：wp-includes/atomlib.php
-----
-public function AtomParser() {
-    self::__construct();
-}
-----
 ****
 
-`cdata`
+==== `cdata`
+****
+[source, php]
+AtomParser::cdata( $parser,  $data )
+****
 
----
 
-`end_element`
+==== `end_element`
+****
+[source, php]
+AtomParser::end_element( $parser,  $name )
+****
 
----
+==== `end_ns`
+****
+[source, php]
+AtomParser::end_ns( $parser,  $prefix )
+****
 
-`end_ns`
+==== `error_handler`
+****
+[source, php]
+AtomParser::error_handler( $log_level,  $log_text,  $error_file,  $error_line )
+****
 
----
+==== `is_declared_content_ns`
+****
+[source, php]
+AtomParser::is_declared_content_ns( $new_mapping )
+****
 
-`error_handler`
-
----
-
-`is_declared_content_ns`
-
-==== `*map_attrs*` — 将给定的键值映射为 key="val" 形式的字符串
+==== `map_attrs` — 将给定的键值映射为 key="val" 形式的字符串
 ****
 [source, php]
 AtomParser::map_attrs( string $k, string $v )
 
 .参数：
-* *$k*：`string` （必须） 键
-* *$v*：`string` （必须） 值
+* *$k*：_(string) (Required)_ 键
+* *$v*：_(string) (Required)_ 值
 
 .返回值：
-* key="val" 形式的字符串
-
-[source, php]
-.代码：wp-includes/atomlib.php
-----
-public static function map_attrs($k, $v) {
-    return "$k=\"$v\"";
-}
-----
+* _(string)_ key="val" 形式的字符串
 ****
 
-`map_xmlns` — 将 XML 命名空间映射为字符串
+==== `map_xmlns` — 将 XML 命名空间映射为字符串
+****
+[source, php]
+AtomParser::map_xmlns( indexish $p, array $n )
 
----
+.参数：
+* *$p*：_(indexish) (Required)_ XML 命名空间元素索引
+* *$n*：_(array) (Required)_ 双元素数组对，[ 0 => {namespace}, 1 => {url} ]
 
-`ns_to_prefix`
+.返回值：
+* _(string)_ 'xmlns="{url}"' 或 'xmlns:{namespace}="{url}"'
+****
 
----
+==== `ns_to_prefix`
+****
+[source, php]
+AtomParser::ns_to_prefix( $qname,  $attr = false )
+****
 
-`parse`
+==== `parse`
+****
+[source, php]
+AtomParser::parse()
+****
 
----
+==== `start_element`
+****
+[source, php]
+AtomParser::start_element( $parser,  $name,  $attrs )
+****
 
-`start_element`
+==== `start_ns`
+****
+[source, php]
+AtomParser::start_ns( $parser,  $prefix,  $uri )
+****
 
----
-
-`start_ns`
-
----
-
-`xml_escape`
-
----
+==== `xml_escape`
+****
+[source, php]
+AtomParser::xml_escape( $string )
+****
 
 === 源码
 
-[source, php]
 .文件：wp-includes/atomlib.php
+[source, php]
 ----
 class AtomParser {
 

@@ -1,0 +1,22 @@
+link:../README.adoc[WordPress 代码参考] / link:../Classes.adoc[类] / link:../classes/AtomParser.adoc[AtomParser] / AtomParser::map_attrs()
+
+==== `map_attrs` — 将给定的键值映射为 key="val" 形式的字符串
+****
+[source, php]
+AtomParser::map_attrs( string $k, string $v )
+
+.参数：
+* *$k*：`string` （必须） 键
+* *$v*：`string` （必须） 值
+
+.返回值：
+* key="val" 形式的字符串
+
+.代码：wp-includes/atomlib.php
+[source, php]
+----
+public static function map_attrs($k, $v) {
+    return "$k=\"$v\"";
+}
+----
+****
