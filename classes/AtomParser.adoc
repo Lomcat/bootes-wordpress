@@ -8,32 +8,49 @@ Atom 解析器 API。
 
 === 方法
 
-.`__construct` — PHP5 构造方法
-----
+---
 
-----
+.`__construct` — PHP5 构造方法
+
+---
 
 `__construct` — PHP5 构造方法
 
+---
+
 `_default`
+
+---
 
 `_p`
 
+---
+
 `AtomParser` — PHP4 构造方法
+
+---
 
 `cdata`
 
+---
+
 `end_element`
+
+---
 
 `end_ns`
 
+---
+
 `error_handler`
+
+---
 
 `is_declared_content_ns`
 
-`map_attrs` — 将给定的键值映射为 key="val" 形式的字符串
+---
 
-.map_attrs
+`map_attrs` — 将给定的键值映射为 key="val" 形式的字符串
 ****
 [source, php]
 AtomParser::map_attrs( string $k, string $v )
@@ -54,17 +71,31 @@ public static function map_attrs($k, $v) {
 ----
 ****
 
+---
+
 `map_xmlns` — 将 XML 命名空间映射为字符串
+
+---
 
 `ns_to_prefix`
 
+---
+
 `parse`
+
+---
 
 `start_element`
 
+---
+
 `start_ns`
 
+---
+
 `xml_escape`
+
+---
 
 === 源码
 
