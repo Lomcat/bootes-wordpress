@@ -1,3 +1,8 @@
 = Summary
 
 link:classes/AtomEntry.adoc[AtomEntry]
+
+. link:classes/AtomEntry.adoc[AtomEntry]
+.. link:classes/AtomEntry[AtomEntry]
+.. link:classes/AtomEntry.html[AtomEntry]
+. link:posts_index.adoc[posts_index]
